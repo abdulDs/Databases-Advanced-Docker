@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  scraper:
+    build: ./scraper
+
+  scraper:
+    build: ./parser
+    depends_on:
+      - scraper
+
+  redis:
+    image: "redis"
+    ports:
+      - "6397:6397"
+
+    mongo:
+      image: "mongo"
+      ports:
+        - "27017:27017"
