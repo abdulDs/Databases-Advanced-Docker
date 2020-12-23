@@ -4,17 +4,17 @@ services:
   scraper:
     build: ./scraper
 
-  scraper:
+  parser:
     build: ./parser
     depends_on:
       - scraper
 
   redis:
-    image: "redis"
+    image: "redis:alpine"
     ports:
-      - "6397:6397"
+      - "6379:6379"
 
-    mongo:
-      image: "mongo"
-      ports:
-        - "27017:27017"
+  mongodb:
+    image: "mongo"
+    ports:
+      - "27017:27017"
