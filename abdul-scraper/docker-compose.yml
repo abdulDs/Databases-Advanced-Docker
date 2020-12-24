@@ -1,20 +1,25 @@
-version: "3"
+version: "3.4"
 
 services:
-  scraper:
-    build: ./scraper
-
-  parser:
-    build: ./parser
-    depends_on:
-      - scraper
 
   redis:
-    image: "redis:alpine"
+    image: "redis"
     ports:
       - "6379:6379"
 
-  mongodb:
+  mongo:
     image: "mongo"
     ports:
       - "27017:27017"
+
+  scraper:
+    build: ./scraper
+    links:
+      - mongo
+      - redis
+
+  parser:
+    build: ./parser
+    links:
+      - mongo
+      - redis
