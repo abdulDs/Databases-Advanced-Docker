@@ -16,6 +16,6 @@ code,runtime, system tools, system libraries and settings.
 
 by using docker 
 
-> we don't to worry about running another OS on top of yours.
-> we will be able to wrap eaxh application into it's container
-> easy to pull images and use them 
+> we don't need to worry about running another OS on top of ours.
+> we will be able to wrap each application with a container
+> easy to pull images and use them. 
